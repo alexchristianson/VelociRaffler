@@ -30,7 +30,7 @@ MIT
 ## Contributions
 You can contribute by creating a new issue.\
 \
-Built by [Alex](https://github.com/alexchristianson)
+Built by [Alex Christianson](https://github.com/alexchristianson)
 
 ## Testing
 N/A
