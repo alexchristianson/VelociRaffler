@@ -1,6 +1,5 @@
 # VelociRaffler
-
-# The Raffler 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [VelociRaffler](future deployed link here)
 
@@ -25,7 +24,7 @@ Use npm install to install packages.
 Free to use.
 
 ## License
-MIT
+MIT [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributions
 You can contribute by creating a new issue.\
