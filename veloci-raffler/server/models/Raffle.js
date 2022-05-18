@@ -15,10 +15,10 @@ const raffleSchema = new Schema({
   image: {
     type: String,
   },
-  ticketArray: [
+  bucketArray: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Ticket",
+      ref: 'User'
     },
   ],
 });
