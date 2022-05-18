@@ -30,15 +30,9 @@ const userSchema = new Schema({
   },
   raffleTickets: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Ticket'
+      type: Number
     }
   ],
-  rafflesWon: [
-    {
-      type: Array
-    }
-  ]
 },
 {
   toJSON: {
