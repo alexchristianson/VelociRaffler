@@ -7,8 +7,7 @@ const typeDefs = gql`
     lastName: String
     email: String
     username: String
-    raffleTickets: [Ticket]
-    rafflesWon: [Raffle]
+    raffleTickets: Int
   }
 
   type Raffle {
@@ -16,7 +15,7 @@ const typeDefs = gql`
     name: String
     description: String
     image: String
-    ticketArray: [Ticket]
+    bucketArray: [String]
   }
 
   type Ticket {
@@ -34,9 +33,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    raffleTickets(username: String): [Ticket]
-    raffleTicket(_id: ID): Ticket
-    rafflesWon(username: String): [Raffle]
+    raffleTickets(username: String): Int
     raffles: [Raffle]
   }
 

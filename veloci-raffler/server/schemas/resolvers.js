@@ -19,24 +19,22 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select("-__v -password")
-        .populate("raffleTickets")
-        .populate("rafflesWon");
+        .populate("raffleTickets");
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
-        .populate("raffleTickets")
-        .populate("rafflesWon");
+        .populate("raffleTickets");
     },
     raffleTickets: async (parent, { username }) => {
       return Ticket.find(username).sort({ createdAt: -1 });
     },
-    raffleTicket: async (parent, { _id }) => {
-      return Ticket.findOne({ _id });
-    },
-    rafflesWon: async (parent, { username }) => {
-      return Raffle.find(username).sort({ createdAt: -1 });
-    },
+    // raffleTicket: async (parent, { _id }) => {
+    //   return Ticket.findOne({ _id });
+    // },
+    // rafflesWon: async (parent, { username }) => {
+    //   return Raffle.find(username).sort({ createdAt: -1 });
+    // },
     raffles: async (parent, args) => {
       return Raffle.find();
     },
