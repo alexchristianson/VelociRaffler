@@ -9,12 +9,12 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("raffleTickets")
-          .populate("rafflesWon");
+          // .populate("rafflesWon");
 
         return userData;
       }
 
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("You are not logged in");
     },
     users: async () => {
       return User.find()
@@ -62,30 +62,30 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addTicket: async (parent, args, context) => {
-      const { raffleId } = args;
-      if (context.user) {
-        const ticket = await Ticket.create({ username: context.user.username });
+    // addTicket: async (parent, args, context) => {
+    //   const { raffleId } = args;
+    //   if (context.user) {
+    //     const ticket = await Ticket.create({ username: context.user.username });
 
-        // add it to the user
-        await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { raffleTickets: ticket._id } },
-          { new: true }
-        );
+    //     // add it to the user
+    //     await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { raffleTickets: ticket._id } },
+    //       { new: true }
+    //     );
 
-        // push it to that raffle item's ticket array
-        await Raffle.findByIdAndUpdate(
-          { _id: raffleId }, // You might need to convert from string to ObjectId
-          { $push: { ticketArray: ticket._id } },
-          { new: true }
-        );
+    //     // push it to that raffle item's ticket array
+    //     await Raffle.findByIdAndUpdate(
+    //       { _id: raffleId }, // You might need to convert from string to ObjectId
+    //       { $push: { ticketArray: ticket._id } },
+    //       { new: true }
+    //     );
   
-        return ticket;
-      }
+    //     return ticket;
+    //   }
 
-      throw new AuthenticationError("You need to be logged in!");
-    },
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
   },
 };
 
